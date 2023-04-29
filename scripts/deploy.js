@@ -5,17 +5,15 @@ const CONTRACT_ADDRESS = process.env.CONTRACT_ADDRESS;
 const GOERLI_API_URL = process.env.GOERLI_API_URL;
 
 async function main() {
-  // const [deployer] = await ethers.getSigners();
+  const [deployer] = await ethers.getSigners();
 
-  // console.log("Deploying contracts with the account:", deployer.address);
+  console.log("Deploying contracts with the account:", deployer.address);
 
-  // console.log("Account balance:", (await deployer.getBalance()).toString());
+  console.log("Account balance:", (await deployer.getBalance()).toString());
 
-  // Grab the contract factory
   const MyNFT = await ethers.getContractFactory("MyNFT");
 
-  // Start deployment, returning a promise that resolves to a contract object
-  const myNFT = await MyNFT.deploy(); // Instance of the contract
+  const myNFT = await MyNFT.deploy();
   console.log("Contract deployed to address:", myNFT.address);
 }
 

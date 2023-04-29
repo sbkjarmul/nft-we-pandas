@@ -6,16 +6,13 @@ const IPFS_METADATA_URL = process.env.IPFS_METADATA_URL;
 
 const contract = require("../artifacts/contracts/MyNFT.sol/MyNFT.json");
 
-// Provider
 const alchemyProvider = new ethers.providers.AlchemyProvider(
   (network = "goerli"),
   GOERLI_API_KEY
 );
 
-// Signer
 const signer = new ethers.Wallet(PRIVATE_KEY, alchemyProvider);
 
-// Contract
 const nftContract = new ethers.Contract(
   GOERLI_CONTRACT_ADDRESS,
   contract.abi,
